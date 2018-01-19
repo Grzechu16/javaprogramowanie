@@ -5,9 +5,9 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 
 /**
- * Created by Gregory on 2018-01-18.
+ * Created by Gregory on 2018-01-19.
  */
-public class ServerThread extends Thread {
+public class ServerThread extends Server {
     Socket mySocket;
 
     public ServerThread(Socket socket) {
@@ -15,11 +15,11 @@ public class ServerThread extends Thread {
         mySocket = socket;
     }
 
-    public void run() // program w�tku
+    public void run() // program wątku
     {
         try {
-			/*
-			 * int in; // odbieramy i drukujemy ... while ((in =
+            /*
+             * int in; // odbieramy i drukujemy ... while ((in =
 			 * mySocket.getInputStream().read()) >= 0) System.out.print((char)
 			 * in);
 			 */

@@ -21,9 +21,6 @@ public class Server {
         List<Answer> answers = new ArrayList<Answer>();
         ServerSocket serverSocket = new ServerSocket(8080);
         Socket socket = serverSocket.accept();
-        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
         try {
 
@@ -54,22 +51,38 @@ public class Server {
 
         for (int i = 0; i < 5; i++) {
             Object objectQuestion = inputStream.readObject();
-            answer = (Answer) objectQuestion;
-            answers.add(answer);
+           // answer = (Answer) objectQuestion;
+            answers.add((Answer) objectQuestion);
+
+            if (answers.size() == 0) {
+
+            } else {
+int ID = answers.get(i).getId();
+int A = answers.get(i).getA();
+int B = answers.get(i).getB();
+int C = answers.get(i).getC();
+int D = answers.get(i).getD();
+
+                try {
+
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/" + "ankieta" + "?user=root");
+
+                    PreparedStatement preparedStatement = connection.prepareStatement("UPDATE odpowiedzi SET a=a + ?, b= b + ?, c=c +?, d = d +? WHERE id = ?");
+                    preparedStatement.setInt(1, A);
+                    preparedStatement.setInt(2, B);
+                    preparedStatement.setInt(3, C);
+                    preparedStatement.setInt(4, D);
+                    preparedStatement.setInt(5, ID);
+
+                    PreparedStatement preparedStatement1 = connection.prepareStatement("UPDATE odpowiedzi SET suma = suma+1 WHERE id = ?");
+                    preparedStatement1.setInt(1, ID);
 
 
-            try {
+                   preparedStatement.executeUpdate();
+                    preparedStatement1.executeUpdate();
 
-                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/" + "ankieta" + "?user=root");
-
-                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO odpowiedzi (id, answer) VALUES (?,?)");
-                preparedStatement.setString(1, String.valueOf(answers.get(i).getId()));
-                preparedStatement.setString(2, answers.get(i).getAnswer());
-
-
-                preparedStatement.executeUpdate();
-
-            } catch (SQLException ex) {
+                } catch (SQLException ex) {
+                }
             }
         }
     }

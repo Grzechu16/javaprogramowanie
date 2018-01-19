@@ -21,9 +21,6 @@ import static javafx.scene.input.KeyCode.F;
  */
 public class Client extends Application {
 
-    private BufferedReader in;
-    private PrintWriter out;
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();

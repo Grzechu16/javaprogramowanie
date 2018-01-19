@@ -42,7 +42,6 @@ public class Controller {
     Socket socket;
 
     public Controller() {
-        System.out.println("kontroler1");
     }
 
     @FXML
@@ -67,66 +66,66 @@ public class Controller {
 
         EventHandler<ActionEvent> eventHandler = new EventHandler<ActionEvent>() {
             int count = 0;
-            int abcd;
+            int a, b, c, d = 0;
 
 
             @Override
             public void handle(ActionEvent event) {
                 if (event.getSource() == aButton) {
                     disableButtons();
-                    abcd = 1;
+                    a = 1;
                     aRadio.fire();
 
                 }
                 if (event.getSource() == bButton) {
                     disableButtons();
-                    abcd = 2;
+                    b = 1;
                     bRadio.fire();
                 }
                 if (event.getSource() == cButton) {
                     disableButtons();
-                    abcd = 3;
+                    c = 1;
                     cRadio.fire();
                 }
                 if (event.getSource() == dButton) {
                     disableButtons();
-                    abcd = 4;
+                    d = 1;
                     dRadio.fire();
                 }
                 if (event.getSource() == nextButton) {
 
                     enableButtons();
                     uncheckRadio();
-                    Answer answer = new Answer();
-                    answer.setId(questions.get(count).getId());
-                    if (abcd == 1) {
-                        answer.setAnswer("A");
-                    } else if (abcd == 2) {
-                        answer.setAnswer("B");
-                    } else if (abcd == 3) {
-                        answer.setAnswer("C");
-                    } else if (abcd == 4) {
-                        answer.setAnswer("D");
-                    }
+
+                    int idQuestion = questions.get(count).getId();
+//                    answer.setId(idQuestion);
+//                    answer.setA(a);
+//                    answer.setB(b);
+//                    answer.setC(c);
+//                    answer.setD(d);
+                    Answer answer = new Answer(questions.get(count).getId(),a,b,c,d);
 
                     answers.add(answer);
+                    a = 0;
+                    b = 0;
+                    c = 0;
+                    d = 0;
                     count++;
 
                     if (count == 5) {
                         disableButtons();
-                     //   for (int i = 0; i < 5; i++) {
-                            nextButton.setDisable(true);
-                            pytanieTextArea.setDisable(true);
-                            disableRadio();
-                            try {
-                                sendAnswers();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                      //  }
-                    }
-                    else
-                    nextQuestion(count);
+                        //   for (int i = 0; i < 5; i++) {
+                        nextButton.setDisable(true);
+                        pytanieTextArea.setDisable(true);
+                        disableRadio();
+                        try {
+                            sendAnswers();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        //  }
+                    } else
+                        nextQuestion(count);
 
 
                 }
