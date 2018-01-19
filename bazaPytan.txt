@@ -1,0 +1,4 @@
+﻿Jaka jest stolica Polski?;Kraków;Warszawa
+Jaki jest jest najdłuższa rzeka w Polsce?;Odra;Bug
+Ile jest województw w Polsce?;16;17
+Ilu Polska ma sąsiadów?;4;5
