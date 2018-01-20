@@ -14,8 +14,6 @@ import static java.lang.System.out;
  * Created by Gregory on 2017-12-20.
  */
 public class Server {
-
-
         public static void main(String args[]) {
             ServerSocket serverSocket = null;
             try {

@@ -10,9 +10,7 @@ public class PackageInput implements Serializable {
     Answer answer;
     Question question;
 
-    public PackageInput(){
-
-    }
+    public PackageInput(){}
 
     public PackageInput(Answer answer, Question question) {
         this.answer = answer;

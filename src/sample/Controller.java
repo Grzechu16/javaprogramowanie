@@ -55,8 +55,7 @@ public class Controller {
     Socket socket;
     int id, a, b, c, d, suma;
 
-    public Controller() {
-    }
+    public Controller() {}
 
     @FXML
     void initialize() throws IOException, ClassNotFoundException {
@@ -107,7 +106,6 @@ public class Controller {
                     a = 1;
                     userAnswers.add("A");
                     aRadio.fire();
-
                 }
                 if (event.getSource() == bButton) {
                     disableButtons();
@@ -119,26 +117,18 @@ public class Controller {
                     disableButtons();
                     c = 1;
                     userAnswers.add("c");
-
                     cRadio.fire();
                 }
                 if (event.getSource() == dButton) {
                     disableButtons();
                     d = 1;
                     userAnswers.add("D");
-
                     dRadio.fire();
                 }
                 if (event.getSource() == nextButton) {
                     enableButtons();
                     uncheckRadio();
 
-                    int idQuestion = questions.get(count).getId();
-//                    answer.setId(idQuestion);
-//                    answer.setA(a);
-//                    answer.setB(b);
-//                    answer.setC(c);
-//                    answer.setD(d);
                     Answer answer = new Answer(questions.get(count).getId(), a, b, c, d);
 
                     answers.add(answer);
@@ -150,7 +140,6 @@ public class Controller {
 
                     if (count == 5) {
                         disableButtons();
-                        //   for (int i = 0; i < 5; i++) {
                         nextButton.setDisable(true);
                         pytanieTextArea.setDisable(true);
                         disableRadio();
@@ -160,11 +149,8 @@ public class Controller {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        //  }
                     } else
                         nextQuestion(count);
-
-
                 }
 
             }
@@ -186,7 +172,6 @@ public class Controller {
             output.writeObject(answers.get(i));
         }
     }
-
 
     public void nextQuestion(int i) {
         pytanieTextArea.setText(questions.get(i).getText());

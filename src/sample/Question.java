@@ -6,13 +6,10 @@ import java.io.Serializable;
  * Created by Gregory on 2017-12-20.
  */
 public class Question implements Serializable {
-
     String text, a, b, c, d;
     int id;
 
-    public Question(){
-
-    }
+    public Question(){}
 
     public Question(String text, String a, String b, String c, String d, int id) {
         this.text = text;
