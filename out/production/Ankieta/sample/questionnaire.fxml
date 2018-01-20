@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <children>
-    <AnchorPane fx:id="panel" maxHeight="-1.0" maxWidth="-1.0" minHeight="400.0" minWidth="600.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="panel" maxHeight="-1.0" maxWidth="-1.0" minHeight="396.0" minWidth="600.0" prefHeight="396.0" prefWidth="863.0" VBox.vgrow="ALWAYS">
       <children>
             <Pane layoutX="8.0" prefHeight="379.0" prefWidth="349.0">
                <children>
@@ -29,15 +29,15 @@
                   <RadioButton fx:id="dRadio" layoutX="292.0" layoutY="265.0" mnemonicParsing="false" />
                </children>
             </Pane>
-            <BarChart fx:id="chart" layoutX="389.0" prefHeight="414.0" prefWidth="349.0">
+            <SplitPane layoutX="367.0" layoutY="-2.0" prefHeight="404.0" prefWidth="12.0" />
+            <BarChart fx:id="chart" layoutX="376.0">
               <xAxis>
-                <CategoryAxis side="BOTTOM" />
+                <CategoryAxis label="Pytania" side="BOTTOM" fx:id="x" />
               </xAxis>
               <yAxis>
-                <NumberAxis minorTickCount="1" side="LEFT" tickLabelGap="5.0" tickLength="5.0" upperBound="9.0" />
+                <NumberAxis fx:id="y" label="Ilość odpowiedzi" side="LEFT" />
               </yAxis>
             </BarChart>
-            <SplitPane layoutX="367.0" layoutY="-2.0" prefHeight="404.0" prefWidth="12.0" />
       </children>
     </AnchorPane>
   </children>

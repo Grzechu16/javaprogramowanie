@@ -3,10 +3,11 @@ package sample;
 import java.io.Serializable;
 
 /**
- * Created by Gregory on 2018-01-18.
+ * Created by Gregory on 2017-12-20.
  */
 public class Answer implements Serializable {
     int id, a, b, c, d;
+    int suma;
 
     public Answer() {
     }
@@ -17,6 +18,23 @@ public class Answer implements Serializable {
         this.c = c;
         this.d = d;
         this.id = id;
+    }
+
+    public Answer(int id, int a, int b, int c, int d, int suma) {
+        this.id = id;
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+        this.suma = suma;
+    }
+
+    public int getSuma() {
+        return suma;
+    }
+
+    public void setSuma(int suma) {
+        this.suma = suma;
     }
 
     public int getId() {
